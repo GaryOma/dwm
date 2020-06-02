@@ -6,7 +6,7 @@ include config.mk
 SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
-all: options dwm
+all: options dwm session
 
 options:
 	@echo dwm build options:
@@ -18,6 +18,16 @@ options:
 	${CC} -c ${CFLAGS} $<
 
 ${OBJ}: config.h config.mk
+
+dwm.desktop:
+	mkdir -p ${SESSION_DIR}/
+	cp ${XSESSION}/$@ ${SESSION_DIR}
+
+dwm_launcher.sh:
+	mkdir -p ${SESSION_DIR}/
+	cp ${LAUNCHER_SCRIPT}/$@ ${SESSION_DIR}
+
+session: dwm.desktop dwm_launcher.sh
 
 config.h:
 	cp config.def.h $@

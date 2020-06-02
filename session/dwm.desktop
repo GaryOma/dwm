@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=dwm
+Comment=dwm window manager
+Exec=/home/gary/script/dwm_launcher.sh
+Type=Application
