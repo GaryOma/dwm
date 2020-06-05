@@ -76,6 +76,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = vifmcmd } },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("chromium")  },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flameshot gui")  },
+	{ 0,                            XK_Print,  spawn,          SHCMD("flameshot gui")  },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
