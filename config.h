@@ -50,19 +50,14 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+    /* first entry is default */
+	{ "[\\]",     dwindle },
+	{ "[]=",      tile },
 	{ "[M]",      monocle },
 	{ "[@]",      spiral },
-	{ "[\\]",     dwindle },
-	{ "H[]",      deck },
 	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
 	{ "HHH",      grid },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
 	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
@@ -103,9 +98,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_a,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, /* dwindle */
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[3]} }, /* spiral */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} }, /* tile */
+	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[4]} }, /* bstack */
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[6]} }, /* centeredmaster */
+	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[2]} }, /* monocle */
+	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[5]} }, /* grid */
+	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[7]} }, /* floating */
 	{ MODKEY,                       XK_f,      fullscreen,     {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
