@@ -98,6 +98,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_a,      killclient,     {0} },
+	{ MODKEY,                       XK_p,      cyclelayout,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_p,      cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, /* dwindle */
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[3]} }, /* spiral */
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} }, /* tile */
