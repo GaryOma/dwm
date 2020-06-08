@@ -47,6 +47,7 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
 #include "vanitygaps.c"
+#include "shiftview.c"
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -174,5 +175,8 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+	{ ClkWinTitle,          0,              Button4,        shiftview,      {.i = -1} },
+	{ ClkWinTitle,          0,              Button5,        shiftview,      {.i = 1} },
+	{ ClkTagBar,            0,              Button4,        shiftview,      {.i = -1} },
+	{ ClkTagBar,            0,              Button5,        shiftview,      {.i = 1} },
 };
-
