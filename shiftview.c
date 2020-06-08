@@ -15,10 +15,16 @@ shiftview(const Arg *arg)
 
 	do {
 		if(i > 0) // left circular shift
-			nextseltags = (curseltags << i) | (curseltags >> (LENGTH(tags) - i));
+            /* stop at first tag */
+            /* don't loop */
+			/* nextseltags = (curseltags << i) | (curseltags >> (LENGTH(tags) - i)); */
+			nextseltags = (curseltags << i);
 
 		else // right circular shift
-			nextseltags = curseltags >> (- i) | (curseltags << (LENGTH(tags) + i));
+            /* stop at last tag */
+            /* don't loop */
+			/* nextseltags = curseltags >> (- i) | (curseltags << (LENGTH(tags) + i)); */
+			nextseltags = curseltags >> (- i);
 
                 // Check if tag is visible
 		for (c = selmon->clients; c && !visible; c = c->next)
