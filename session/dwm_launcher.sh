@@ -10,6 +10,6 @@ xrdb .Xdefaults
 # have to reload it somehow ? (jdownloader2)
 wmname LG3D
 # bar
-dwmblocks &
+# dwmblocks &
 
-exec dwm
+dwm > ~/dwm.log
