@@ -134,6 +134,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    /* gaps management */
+	{ MODKEY|ControlMask,           XK_l,      incrgaps,       {.i = +10 } },
+	{ MODKEY|ControlMask,           XK_h,      incrgaps,       {.i = -10 } },
+	{ MODKEY|ControlMask,           XK_k,      incrgaps,       {.i = +2 } },
+	{ MODKEY|ControlMask,           XK_j,      incrgaps,       {.i = -2 } },
+	{ MODKEY|ControlMask,           XK_equal,  defaultgaps,    {0} },
+    /* tag keys */
     TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
 	TAGKEYS(                        XK_quotedbl,               2)
@@ -151,8 +158,6 @@ static Key keys[] = {
 
 
 	/* { MODKEY,                       XK_w,      tabmode,        {-1} }, */ /* show/hide tabbar */
-	/* { MODKEY|Mod4Mask,              XK_u,      incrgaps,       {.i = +1 } }, */
-	/* { MODKEY|Mod4Mask|ShiftMask,    XK_u,      incrgaps,       {.i = -1 } }, */
 	/* { MODKEY|Mod4Mask,              XK_i,      incrigaps,      {.i = +1 } }, */
 	/* { MODKEY|Mod4Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } }, */
 	/* { MODKEY|Mod4Mask,              XK_o,      incrogaps,      {.i = +1 } }, */
@@ -166,7 +171,6 @@ static Key keys[] = {
 	/* { MODKEY|Mod4Mask,              XK_9,      incrovgaps,     {.i = +1 } }, */
 	/* { MODKEY|Mod4Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } }, */
 	/* { MODKEY|Mod4Mask,              XK_0,      togglegaps,     {0} }, */
-	/* { MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} }, */
 };
 
 /* button definitions */
