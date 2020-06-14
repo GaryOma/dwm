@@ -12,4 +12,4 @@ wmname LG3D
 # bar
 dwmblocks &
 
-exec dwm
+dwm > ~/dwm.log
