@@ -101,7 +101,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = vifmcmd } },
-	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("chromium")  },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("chromium")  },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flameshot gui")  },
 	{ 0,                            XK_Print,  spawn,          SHCMD("flameshot gui")  },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("~/script/pactl-loopback.sh")  },
