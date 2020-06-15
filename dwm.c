@@ -305,8 +305,9 @@ static void zoom(const Arg *arg);
 /* variables */
 static Systray *systray =  NULL;
 static const char broken[] = "broken";
-static char stext[256];
-static char rawstext[256];
+#define STATUS_TEXT_MAX_VAL      300
+static char stext[STATUS_TEXT_MAX_VAL];
+static char rawstext[STATUS_TEXT_MAX_VAL];
 static int dwmblockssig;
 pid_t dwmblockspid = 0;
 static int screen;
