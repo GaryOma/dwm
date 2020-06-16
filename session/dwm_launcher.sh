@@ -1,5 +1,7 @@
 # !/bin/sh
 
+# setup the multi monitor
+autorandr --change
 # background
 ~/.fehbg &
 # numpad
