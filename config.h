@@ -199,4 +199,6 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button4,        shiftview,      {.i = -1} },
 	{ ClkLtSymbol,          0,              Button5,        shiftview,      {.i = 1} },
 	{ ClkTabBar,            0,              Button1,        focuswin,       {0} },
+	{ ClkTabBar,            0,              Button4,        focusstack,     {.i = INC(-1) } },
+	{ ClkTabBar,            0,              Button5,        focusstack,     {.i = INC(+1) } },
 };
