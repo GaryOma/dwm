@@ -27,7 +27,7 @@ shiftview(const Arg *arg)
 			nextseltags = curseltags >> (- i);
 
                 // Check if tag is visible
-		for (c = selmon->clients; c && !visible; c = c->next)
+		for (c = selmon->cl->clients; c && !visible; c = c->next)
 			if (nextseltags & c->tags) {
 				visible = 1;
 				break;
@@ -59,7 +59,7 @@ shifttag(const Arg *arg)
 			nextseltags = curseltags >> (- i) | (curseltags << (LENGTH(tags) + i));
 
                 // Check if tag is visible
-		for (c = selmon->clients; c && !visible; c = c->next)
+		for (c = selmon->cl->clients; c && !visible; c = c->next)
 			if (nextseltags & c->tags) {
 				visible = 1;
 				break;
