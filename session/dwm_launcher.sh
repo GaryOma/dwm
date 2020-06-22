@@ -13,5 +13,8 @@ xrdb .Xdefaults
 wmname LG3D
 # bar
 dwmblocks &
+# NM applet
+nm-applet &
+gnome-keyring-daemon --start --components=secrets
 
 dwm > ~/dwm.log
