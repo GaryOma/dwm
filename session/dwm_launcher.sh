@@ -15,6 +15,9 @@ wmname LG3D
 dwmblocks &
 # NM applet
 nm-applet &
+# gnome passwords
 gnome-keyring-daemon --start --components=secrets
+# caffeine
+setsid caffeine &
 
 dwm > ~/dwm.log
