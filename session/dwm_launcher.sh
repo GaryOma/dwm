@@ -16,5 +16,7 @@ dwmblocks &
 # NM applet
 nm-applet &
 gnome-keyring-daemon --start --components=secrets
+caffeine &
+redshift-gtk &
 
 dwm > ~/dwm.log
