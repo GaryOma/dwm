@@ -18,6 +18,6 @@ nm-applet &
 # gnome passwords
 gnome-keyring-daemon --start --components=secrets
 setsid caffeine &
-redshift-gtk &
+setsid redshift-gtk &
 
 dwm > ~/dwm.log
