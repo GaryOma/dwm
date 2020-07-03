@@ -2,7 +2,7 @@
 
 # My build of dwm
 
-It is launched by the _gnome display manager_, using the [dwm.desktop](session/dwm.desktop) file.
+This build of [dwm](https://dwm.suckless.org/) is launched by the _gnome display manager_, using the [dwm.desktop](session/dwm.desktop) file.
 
 This entry launches the [dwm_launcher](session/dwm_launcher.sh) script which executes _dwm_.
 
@@ -57,6 +57,7 @@ Shows system-tray icons on the top right corner of the statusbar.
 - [dwm-vanitygaps-6.2.diff](patches/dwm-vanitygaps-6.2.diff)
 
 Adds gaps between the clients.
+Patch taken from here [](https://github.com/bakkeby/dwm-vanitygaps) to have the ability to have the gaps _AND_ the layouts.
 
 - [dwm-warp-6.2.diff](patches/dwm-warp-6.2.diff)
 
