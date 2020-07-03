@@ -1,3 +1,5 @@
+![dwm](dwm.png)
+
 # My build of dwm
 
 It is launched by the _gnome display manager_, using the [dwm.desktop](session/dwm.desktop) file.
