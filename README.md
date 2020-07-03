@@ -57,7 +57,7 @@ Shows system-tray icons on the top right corner of the statusbar.
 - [dwm-vanitygaps-6.2.diff](patches/dwm-vanitygaps-6.2.diff)
 
 Adds gaps between the clients.
-Patch taken from here [](https://github.com/bakkeby/dwm-vanitygaps) to have the ability to have the gaps _AND_ the layouts.
+Patch taken from here [https://github.com/bakkeby/dwm-vanitygaps](https://github.com/bakkeby/dwm-vanitygaps) to have the ability to have the gaps _AND_ the layouts.
 
 - [dwm-warp-6.2.diff](patches/dwm-warp-6.2.diff)
 
