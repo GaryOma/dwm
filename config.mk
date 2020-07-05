@@ -6,7 +6,6 @@ VERSION = 6.2
 # session
 SESSION_DIR = session
 XSESSION = /usr/share/xsessions
-LAUNCHER_SCRIPT = ~/script
 
 # paths
 PREFIX = ~/.local
