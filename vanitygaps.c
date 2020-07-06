@@ -772,7 +772,7 @@ nrowgrid(Monitor *m)
 static void
 tile(Monitor *m)
 {
-	unsigned int i, n;
+	unsigned int i, n, smh;
 	int oh, ov, ih, iv;
 	int mx = 0, my = 0, mh = 0, mw = 0;
 	int sx = 0, sy = 0, sh = 0, sw = 0;
@@ -803,7 +803,25 @@ tile(Monitor *m)
 			resize(c, mx, my, mw - (2*c->bw), (mh / mfacts) + (i < mrest ? 1 : 0) - (2*c->bw), 0);
 			my += HEIGHT(c) + ih;
 		} else {
-			resize(c, sx, sy, sw - (2*c->bw), (sh / sfacts) + ((i - m->nmaster) < srest ? 1 : 0) - (2*c->bw), 0);
-			sy += HEIGHT(c) + ih;
+			/* resize(c, sx, sy, sw - (2*c->bw), (sh / sfacts) + ((i - m->nmaster) < srest ? 1 : 0) - (2*c->bw), 0); */
+			/* sy += HEIGHT(c) + ih; */
+
+			smh = m->mh * m->smfact;
+			if(!(nexttiled(c->next)))
+				sh = (m->wh - sy) / (n - i);
+			else
+				sh = (m->wh - smh - sy) / (n - i);
+			if(sh < minwsz) {
+				c->isfloating = True;
+				XRaiseWindow(dpy, c->win);
+				resize(c, sx + (m->mw / 2 - WIDTH(c) / 2), sy + (m->mh / 2 - HEIGHT(c) / 2), sw - mw - (2*c->bw), sh - (2*c->bw), False);
+				sy -= HEIGHT(c);
+			}
+			else
+				resize(c, sx + mw, sy, sw - mw - (2*c->bw), sh - (2*c->bw), False);
+			if(!(nexttiled(c->next)))
+				sy += HEIGHT(c) + smh;
+			else
+				sy += HEIGHT(c);
 		}
 }

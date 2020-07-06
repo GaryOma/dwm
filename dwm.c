@@ -95,6 +95,7 @@ typedef union {
 	int i;
 	unsigned int ui;
 	float f;
+	float sf;
 	const void *v;
 } Arg;
 
@@ -142,6 +143,7 @@ typedef struct Pertag Pertag;
 struct Monitor {
 	char ltsymbol[16];
 	float mfact;
+	float smfact;
 	int nmaster;
 	int num;
 	int by;               /* bar geometry */
@@ -259,6 +261,7 @@ static void setfullscreen(Client *c, int fullscreen);
 static void fullscreen(const Arg *arg);
 static void setlayout(const Arg *arg);
 static void setmfact(const Arg *arg);
+static void setsmfact(const Arg *arg);
 static void setup(void);
 static void seturgent(Client *c, int urg);
 static void showhide(Client *c);
@@ -829,6 +832,7 @@ createmon(void)
 	m = ecalloc(1, sizeof(Monitor));
 	m->tagset[0] = m->tagset[1] = 1;
 	m->mfact = mfact;
+	m->smfact = smfact;
 	m->nmaster = nmaster;
 	m->showbar = showbar;
 	m->showtab = showtab;
@@ -2044,6 +2048,19 @@ setmfact(const Arg *arg)
 	if (f < 0.05 || f > 0.95)
 		return;
 	selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag] = f;
+	arrange(selmon);
+}
+
+void
+setsmfact(const Arg *arg) {
+	float sf;
+
+	if(!arg || !selmon->lt[selmon->sellt]->arrange)
+		return;
+	sf = arg->sf < 1.0 ? arg->sf + selmon->smfact : arg->sf - 1.0;
+	if(sf < 0 || sf > 0.9)
+		return;
+	selmon->smfact = sf;
 	arrange(selmon);
 }
 

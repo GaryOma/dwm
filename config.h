@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int minwsz    = 20;       /* Minimal heigt of a client for smfact */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -50,6 +51,7 @@ static const Rule rules[] = {
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float smfact    = 0.00; /* factor of tiled clients [0.00..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
@@ -113,6 +115,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_v,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ControlMask,           XK_k,      setsmfact,      {.f = +0.05} },
+	{ MODKEY|ControlMask,           XK_j,      setsmfact,      {.f = -0.05} },
 	{ MODKEY,                       XK_Tab,    zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_a,      killclient,     {0} },
@@ -138,8 +142,8 @@ static Key keys[] = {
     /* gaps management */
 	{ MODKEY|ControlMask,           XK_l,      incrgaps,       {.i = +10 } },
 	{ MODKEY|ControlMask,           XK_h,      incrgaps,       {.i = -10 } },
-	{ MODKEY|ControlMask,           XK_k,      incrgaps,       {.i = +2 } },
-	{ MODKEY|ControlMask,           XK_j,      incrgaps,       {.i = -2 } },
+	/* { MODKEY|ControlMask,           XK_k,      incrgaps,       {.i = +2 } }, */
+	/* { MODKEY|ControlMask,           XK_j,      incrgaps,       {.i = -2 } }, */
 	{ MODKEY|ControlMask,           XK_equal,  defaultgaps,    {0} },
     /* tag keys */
     TAGKEYS(                        XK_ampersand,              0)
