@@ -175,11 +175,14 @@ getfacts(Monitor *m, int msize, int ssize, float *mf, float *sf, int *mr, int *s
 	sfacts = n - m->nmaster;
 
 	for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++)
-		if (n < m->nmaster)
+		if (n < m->nmaster) {
+            mfacts += c->cfact;
 			mtotal += msize / mfacts;
-		else
-			stotal += ssize / sfacts;
-
+        } else {
+            sfacts += c->cfact;
+            stotal += ssize / sfacts;
+        }
+    
 	*mf = mfacts; // total factor of master area
 	*sf = sfacts; // total factor of stack area
 	*mr = msize - mtotal; // the remainder (rest) of pixels after an even master split
@@ -800,10 +803,11 @@ tile(Monitor *m)
 
 	for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
 		if (i < m->nmaster) {
-			resize(c, mx, my, mw - (2*c->bw), (mh / mfacts) + (i < mrest ? 1 : 0) - (2*c->bw), 0);
-			my += HEIGHT(c) + ih;
+            resize(c, mx, my, mw - (2*c->bw), (mh / mfacts) * c->cfact + (i < mrest ? 1 : 0) - (2*c->bw), 0);
+            my += HEIGHT(c) + ih;
 		} else {
-			resize(c, sx, sy, sw - (2*c->bw), (sh / sfacts) + ((i - m->nmaster) < srest ? 1 : 0) - (2*c->bw), 0);
-			sy += HEIGHT(c) + ih;
+            resize(c, sx, sy, sw - (2*c->bw), (sh / sfacts) * c->cfact + ((i - m->nmaster) < srest ? 1 : 0) - (2*c->bw), 0);
+            sy += HEIGHT(c) + ih;
+            sfacts -= c->cfact;
 		}
 }

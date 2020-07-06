@@ -113,6 +113,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_v,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ControlMask,             XK_k,      setcfact,       {.f = +0.25} },
+	{ MODKEY|ControlMask,             XK_j,      setcfact,       {.f = -0.25} },
+	{ MODKEY|ControlMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_Tab,    zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_a,      killclient,     {0} },
@@ -138,8 +141,8 @@ static Key keys[] = {
     /* gaps management */
 	{ MODKEY|ControlMask,           XK_l,      incrgaps,       {.i = +10 } },
 	{ MODKEY|ControlMask,           XK_h,      incrgaps,       {.i = -10 } },
-	{ MODKEY|ControlMask,           XK_k,      incrgaps,       {.i = +2 } },
-	{ MODKEY|ControlMask,           XK_j,      incrgaps,       {.i = -2 } },
+	/* { MODKEY|ControlMask,           XK_k,      incrgaps,       {.i = +2 } }, */
+	/* { MODKEY|ControlMask,           XK_j,      incrgaps,       {.i = -2 } }, */
 	{ MODKEY|ControlMask,           XK_equal,  defaultgaps,    {0} },
     /* tag keys */
     TAGKEYS(                        XK_ampersand,              0)
