@@ -23,11 +23,7 @@ dwm.desktop:
 	mkdir -p ${SESSION_DIR}/
 	cp ${XSESSION}/$@ ${SESSION_DIR}
 
-dwm_launcher.sh:
-	mkdir -p ${SESSION_DIR}/
-	cp ${LAUNCHER_SCRIPT}/$@ ${SESSION_DIR}
-
-session: dwm.desktop dwm_launcher.sh
+session: dwm.desktop
 
 config.h:
 	cp config.def.h $@

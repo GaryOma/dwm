@@ -45,6 +45,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Gnome-calculator",  NULL,       NULL,       0,       1,           -1 },
+	{ "Lingot",   NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -104,7 +105,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("chromium")  },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flameshot gui")  },
 	{ 0,                            XK_Print,  spawn,          SHCMD("flameshot gui")  },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("~/script/pactl-loopback.sh")  },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("~/scripts/pactl-loopback.sh")  },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
