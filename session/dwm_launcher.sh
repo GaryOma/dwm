@@ -10,7 +10,8 @@ numlockx on
 xrdb .Xdefaults
 # java stuff
 # have to reload it somehow ? (jdownloader2)
-wmname LG3D
+export _JAVA_AWT_WM_NONREPARENTING=1
+# wmname LG3D
 # bar
 dwmblocks &
 # NM applet
