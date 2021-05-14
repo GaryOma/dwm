@@ -18,7 +18,14 @@ dwmblocks &
 nm-applet &
 # gnome passwords
 gnome-keyring-daemon --start --components=secrets
+
+# keep computer 'up'
 setsid caffeine &
+
+# reduces blue lights
+# first, start the agent to retreive the correct location
+setsid /usr/lib/geoclue-2.0/demos/agent  &
+# then runs the soft
 setsid redshift-gtk &
 
 dwm > ~/dwm.log
